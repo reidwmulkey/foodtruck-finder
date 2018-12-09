@@ -52,7 +52,9 @@ public class FoodTruckRepository {
 
 	@Data
 	public static class FoodTruckResponse {
+		
 		private String location;
 		private String applicant;
+		
 	}
 }
