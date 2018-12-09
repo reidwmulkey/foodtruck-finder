@@ -15,7 +15,7 @@ public class RestRepository {
 	private static Gson gson = new Gson();
 
 	@SneakyThrows
-	public <T> T getForObject(String url, Class<T> classOfT) {
+	public static <T> T getForObject(String url, Class<T> classOfT) {
 		
 		CloseableHttpClient httpClient = HttpClientBuilder.create().build();
 		HttpGet request = new HttpGet(url);

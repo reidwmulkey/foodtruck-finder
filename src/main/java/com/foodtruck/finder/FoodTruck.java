@@ -12,7 +12,4 @@ public class FoodTruck {
 	private String address;
 	private String name;
 
-	public String toString(){
-		return name + "\t" + address;
-	}
 }

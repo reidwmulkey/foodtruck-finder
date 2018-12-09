@@ -26,11 +26,12 @@ public class FoodTruckRepository {
 
 		String url = builder.build().toString();
 
-		List<FoodTruckResponse> responses = Arrays
-				.asList(new RestRepository().getForObject(url, FoodTruckResponse[].class));
+		List<FoodTruckResponse> responses = Arrays.asList(RestRepository.getForObject(url, FoodTruckResponse[].class));
 
 		return FoodTruckFactory.build(responses);
 	}
+
+	// business methods
 
 	private static String getHourOfDayQuery(DateTime dateTime) {
 		String hourOfDay = getFormattedHourOfDay(dateTime.getHourOfDay());
