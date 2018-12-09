@@ -23,7 +23,7 @@ public class FoodTrucks {
 		// out of 10 random businesses, at least one likely has a name longer
 		// than 4 characters
 		return Math.max(4, foodTrucks.stream().map(ft -> ft.getName()).sorted((a, b) -> b.length() - a.length())
-				.findFirst().get().length());
+				.findFirst().orElse("").length());
 	}
 
 	// using spaces instead of tabs because tabs are user

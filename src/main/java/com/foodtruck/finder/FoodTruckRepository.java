@@ -19,7 +19,9 @@ public class FoodTruckRepository {
 
 		URIBuilder builder = new URIBuilder(ALL_FOOD_TRUCKS);
 
-		builder.addParameter("dayorder", dateTime.getDayOfWeek() + "");
+		// % 7 because joda handles sundays as the 7th day, whereas the API
+		// handles it as the 0th day
+		builder.addParameter("dayorder", (dateTime.getDayOfWeek() % 7) + "");
 		builder.addParameter("$limit", resultsPerPage.toString());
 		builder.addParameter("$offset", pageNumber.toString());
 		builder.addParameter("$where", getHourOfDayQuery(dateTime));
@@ -52,9 +54,9 @@ public class FoodTruckRepository {
 
 	@Data
 	public static class FoodTruckResponse {
-		
+
 		private String location;
 		private String applicant;
-		
+
 	}
 }
